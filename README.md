@@ -91,4 +91,4 @@ As we can see the Greedy MR may not decrease monotonically, as preference update
 It is worth mentioning that according to the paper they started with no vote information, here we start with an existing partial profile and added to it.<br>
 
 
-For more information see [Multi-winner Social Choice with Incomplete Preferences Analysis.pdf]()
+For more information see [Multi-winner Social Choice with Incomplete Preferences Analysis.pdf](https://github.com/adilevi12/Multi-winner-Social-Choice-with-Incomplete-Preferences-analysis/blob/12288fb18d656a7f46ea32ffd94f4634c6c24f0e/Multi-winner%20Social%20Choice%20with%20Incomplete%20Preferences%20Analysis.pdf)
