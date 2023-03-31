@@ -8,7 +8,7 @@
 Following part 1 where we described the paper and presented the main result:<br>
 <ol>
     <li> The greedy robust optimization algorithm with minimax regret, provides an effective solution
-in polynomial time $O(nm^3K^2)$ where $K$ is the slate size, $m$ is the number of candidates, and $n$
+in polynomial time $O(nm^3K^2)$ where $K$ is the slate size, $m$ is the number of candidates, and $n$ 
         is the number of voters.</li>
     <li> The greedy-MMR algorithm provides an approximation of the optimal slate selection, with a factor of approximation being $1-\frac{1}{e^{\frac{1}{\alpha}}}$, which depends on the value of $\alpha$. The closer $\alpha$ is to 1,
 the closer the approximation is to the optimal solution.</li>
@@ -64,9 +64,10 @@ At each iteration $k\leqslant K$, we add the option with the least max regret gi
 
 ### Runtime:
 <br>
-As we discussed in the results in part A, the greedy robust optimization algorithm with minimax regret, provides an effective solution in polynomial time $O(nm^3 K^2 )$ where $K$ is the slate size, $m$ is the number of candidates and $n$ is the number of voters.<br>
+As we discussed in the results in part A, the greedy robust optimization algorithm with minimax regret, provides an effective solution in polynomial time $O(nm^3 K^2)$ where $K$ is the slate size, $m$ is the number of candidates and $n$ is the number of voters.<br>
 
-Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm (costs $O(nm^{2K+1} K^2 )$), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2 )$).<br>
+Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm 
+(costs $O(nm^{2K+1} K^2 )$ ), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2 )$ ).<br>
 At each iteration $k\leqslant K$, we add the option with the least max regret given the prior items, to the slate.<br>
 
 <img src="https://user-images.githubusercontent.com/53708521/229232646-689f0f6a-3223-417c-bcb8-debc2636e8da.JPG" alt="Alternative text"  width="500" height="350"/>
