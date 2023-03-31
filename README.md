@@ -40,8 +40,7 @@ Set of elements from $\bar{a}$ that are not dominated by any element in $\bar{a}
 The regret-optimal slate $\bar{a}_{p}^{*}$ can be determined by first computing $PMR(\bar{a},\bar{w},p)$ for all pairs
 of K-sets $\bar{a}$, $\bar{w}$, maximizing over $\bar{w}$ to determine $MR(\bar{a},p)$, then minimizing over these terms to compute $MMR(p)$.<br><br>
 Here you can see the following pseudocode of the algorithm <b> we wrote</b> as we interpreted from the paper: <br>
-![optimal_algorithm](https://user-images.githubusercontent.com/53708521/229229166-5b9a7c89-e86a-4299-aba5-e7e38aca4cb5.JPG)
-
+<img src="https://user-images.githubusercontent.com/53708521/229229166-5b9a7c89-e86a-4299-aba5-e7e38aca4cb5.JPG" alt="Alternative text"  width="550" height="600"/>
 
 ### We will define: 
 <ol>
@@ -57,11 +56,35 @@ Given $\bar{a}$ set, a is a proposed additional option, and w is an adversarial 
 ## Greedy algorithm:
 <br>
 We would like to implemment the Greedy algorithm from the paper:<br>
-![algorithm](https://user-images.githubusercontent.com/53708521/229229324-a6c1d9c8-90a3-412e-8430-280bbb707c81.JPG)
 
-<br>Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm (costs $O(nm^{2K+1} K^2 )$), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2 )$).<br>
+![algorithm](https://user-images.githubusercontent.com/53708521/229230908-49f61cf7-0818-4a0b-9d58-35158c6717f2.JPG)
+
+<br>Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm (costs $O(nm^{2K+1}K^2)$ ), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2)$ ).<br>
 At each iteration $k\leqslant K$, we add the option with the least max regret given the prior items, to the slate.<br>
 
+### Runtime:
+<br>
+As we discussed in the results in part A, the greedy robust optimization algorithm with minimax regret, provides an effective solution in polynomial time $O(nm^3 K^2 )$ where $K$ is the slate size, $m$ is the number of candidates and $n$ is the number of voters.<br>
 
+Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm (costs $O(nm^{2K+1} K^2 )$), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2 )$).<br>
+At each iteration $k\leqslant K$, we add the option with the least max regret given the prior items, to the slate.<br>
 
+<img src="https://user-images.githubusercontent.com/53708521/229232646-689f0f6a-3223-417c-bcb8-debc2636e8da.JPG" alt="Alternative text"  width="500" height="350"/>
 
+As we can see, the average runtime increases significantly with the number of candidates m, but less dramatically
+with K<br> 
+This is consistent with the “quadratic in K” and “cubic in m” computational results above<br>
+We can see that for small m and K, we can achieve an optimal solution in linear time.<br>
+
+### MR  as a function of query updates:
+<br>
+We saw from the paper that the random elicitation strategy on the greedy algorithm (yellow line) is mostly decreasing as a function of the number of queries.<br>
+
+<img src="https://user-images.githubusercontent.com/53708521/229233705-e75479ef-e0c7-4023-8770-567281fdfb4e.JPG" alt="Alternative text"  width="500" height="350"/>
+
+<img src="https://user-images.githubusercontent.com/53708521/229234367-b25a07c7-ca9a-4711-a645-d14fe8fd696b.JPG" alt="Alternative text"  width="500" height="350"/>
+
+We computed the conditional MR as a function of the number of queries added to the partial profile (over 20 randomly drawn profiles).<br>
+Our location strategy randomly picks a voter and pairwise query (ensuring this query is not implied by that voter’s partial ranking), then we are using Greedy to compute a slate at each round and measure its max regret and minimax regret.<br> 
+As we can see the Greedy MR may not decrease monotonically, as preference updates may “mislead” Greedy into choosing an inferior slate (by contrast, true MMR is non-increasing)<br>
+It is worth mentioning that according to the paper they started with no vote information, here we start with an existing partial profile and added to it.<br>
