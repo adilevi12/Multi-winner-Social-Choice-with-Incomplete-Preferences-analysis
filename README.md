@@ -89,3 +89,6 @@ We computed the conditional MR as a function of the number of queries added to t
 Our location strategy randomly picks a voter and pairwise query (ensuring this query is not implied by that voter’s partial ranking), then we are using Greedy to compute a slate at each round and measure its max regret and minimax regret.<br> 
 As we can see the Greedy MR may not decrease monotonically, as preference updates may “mislead” Greedy into choosing an inferior slate (by contrast, true MMR is non-increasing)<br>
 It is worth mentioning that according to the paper they started with no vote information, here we start with an existing partial profile and added to it.<br>
+
+
+For more information see [Multi-winner Social Choice with Incomplete Preferences Analysis.pdf]()
