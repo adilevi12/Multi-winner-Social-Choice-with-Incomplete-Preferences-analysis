@@ -63,8 +63,8 @@ We would like to implemment the Greedy algorithm from the paper:<br>
 At each iteration $k\leqslant K$, we add the option with the least max regret given the prior items, to the slate.<br>
 
 ### Runtime:
-<br>
-As we discussed in the results in part A, the greedy robust optimization algorithm with minimax regret, provides an effective solution in polynomial time $O(nm^3 K^2)$ where $K$ is the slate size, $m$ is the number of candidates and $n$ is the number of voters.<br>
+As we discussed in the results in part A, the greedy robust optimization algorithm with minimax regret, provides an effective solution in polynomial time 
+$O(nm^3K^2)$ where $K$ is the slate size, $m$ is the number of candidates and $n$ is the number of voters.<br>
 
 Instead of computing the $MR(\bar{a},p)$ for each size $K$ slate $\bar{a}$ and selecting the slate that minimizes regret in the optimal algorithm 
 (costs $O(nm^{2K+1} K^2 )$ ), we are building the slate $\bar{a}$ by iterations until we get a slate of size $K$ (costs $O(nm^3 K^2 )$ ).<br>
